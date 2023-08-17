@@ -1,0 +1,50 @@
+<body>
+    <main class="container">
+
+        <div class="image-select">
+            <div class="ajustCenter">
+                <img src="../../../../assets/img/empty-image.png" class="img-thumbnail image-url" alt="Imga Service"
+                    width="300" height="300" *ngIf="isImageSelectDes()">
+            </div>
+
+            <div class="ajustCenter">
+                <img [src]="placesDes.idImage.url" class="img-thumbnail image-url" alt="Imga Service" width="300"
+                    height="300" *ngIf="!isImageSelectDes()">
+            </div>
+        </div>
+
+        <div class="input-group mb-3">
+            <select class="form-select" id="placesOriInput" [(ngModel)]="journeyDesId" name="namePlace">
+                <option *ngFor="let pla of journeyList" [value]="pla.journey.id">{{pla.placeDes.namePlace}}</option>
+            </select>
+            <label class="input-group-text" for="placesOriInput">Origen</label>
+        </div>
+
+
+        <table class="table table-secondary" *ngIf="isReservationUser()">
+            <thead>
+                <tr class="table-dark">
+                    <th scope="col">ID</th>
+                    <th scope="col">Usuario</th>
+                    <th scope="col">Cantidad De Personas</th>
+                    <th scope="col">Observación</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let res of reservation">
+                    <th scope="row">{{res?.journey?.id}}</th>
+                    <th scope="row">{{res?.user?.email}} </th>
+                    <th scope="row">{{res?.countPeople}}</th>
+                    <th scope="row">{{res?.observations}}</th>
+                </tr>
+            </tbody>
+        </table>
+
+        <div *ngIf="!isReservationUser()">
+            <div  class="ajustCenter">
+                <img src="../../../assets/img/empty.png" alt="">
+            </div>
+            <h3 class="text-center">No se encontro ningúna reservación</h3>
+        </div>
+    </main>
+</body>

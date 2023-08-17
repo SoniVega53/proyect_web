@@ -1,0 +1,37 @@
+<body>
+  <main class="container container-board">
+    <br>
+    <h1 class="text-center">Lugares de Destino y Origen Aventuras 360</h1>
+    <br>
+
+    <div class="card-list">
+      <div class="container text-center">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+          <div class="col" *ngFor="let pla of placesList">
+
+            <div class="card ">
+              <img [src]='pla.idImage.url' class="img-fluid  object-fit-cover border rounded" alt="...">
+              <div class="card-body">
+                <h1 class="card-title text-center">{{pla.namePlace}}</h1>
+                <p class="card-text">{{pla.description}}</p>
+
+              </div>
+              <div class="card-footer">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                  <button class="btn btn-primary me-md-2" type="button" (click)="navEdit(pla.id)">Editar</button>
+                  <button class="btn btn-danger" type="button" (click)="getDeletePlace(pla.id)">Eliminar</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+  </main>
+</body>

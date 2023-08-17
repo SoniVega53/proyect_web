@@ -1,0 +1,36 @@
+<div>
+    <h1></h1>
+    <div class="container text-center ">
+        <div class="row row-cols-1 row-cols-sm-2">
+            <div class="col">
+                <div class="date-input">
+                    <h3>Fecha Inicial:</h3>
+                    <input type="date" id="datePicker" [(ngModel)]="selectedDateInit" (input)="onChange()"
+                        name="selectedDateInit">
+                </div>
+
+                <br>
+                <div class="mb-3" *ngIf="isTime">
+                    <label for="hourInit" class="form-label">Hora Inicial:</label>
+                    <input type="time" class="form-control" id="hourInit" [(ngModel)]="hourInit" name="hourInit"
+                        (input)="onChange()">
+                </div>
+
+            </div>
+            <div class="col">
+                <div class="date-input">
+                    <h3>Fecha Final:</h3>
+                    <input type="date" id="datePicker" [(ngModel)]="selectedDateEnd" (input)="onChange()"
+                        name="selectedDateEnd">
+                </div>
+                <br>
+                <div class="mb-3" *ngIf="isTime">
+                    <label for="hourEnd" class="form-label">Hora Final:</label>
+                    <input type="time" class="form-control" id="hourEnd" [(ngModel)]="hourEnd" name="hourEnd"
+                        (input)="onChange()">
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>

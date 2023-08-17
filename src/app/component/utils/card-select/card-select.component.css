@@ -1,0 +1,25 @@
+svg{
+    width: 3rem;
+    height: 3rem;
+    margin: 0.3rem;
+    padding: 0.4rem;
+    color: rgb(255, 255, 255) ;
+}
+.svg-div{
+    background-color: rgb(6, 56, 85) !important;
+    display: inline-block;
+}
+
+.bg-body-tertiary{
+    background-color: rgb(218, 218, 218) !important;
+    color: rgb(32, 32, 32) ;
+    width: 17rem;
+}
+
+h2,p{
+    margin-bottom: 0 !important;
+}
+
+.cursor-card{
+    cursor: pointer;
+}

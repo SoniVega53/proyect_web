@@ -1,0 +1,86 @@
+<body>
+    <main class="container">
+
+        <div class="container text-center">
+            <div class="row row-cols-2">
+                <div class="col">
+
+                    <div>
+                        <img src="../../../../assets/img/empty-image.png" class="img-thumbnail" alt="Imga Service"
+                            width="200" height="200" *ngIf="isImageSelectOri()">
+
+                        <img [src]="placesOri.idImage.url" class="img-thumbnail" alt="Imga Service" width="200"
+                            height="200" *ngIf="!isImageSelectOri()">
+                    </div>
+
+                    <br>
+
+                    <div class="input-group mb-3">
+                        <select class="form-select" id="placesOriInput" [(ngModel)]="placesOriId" name="namePlace" (input)="onInputChange()">
+                            <option *ngFor="let pla of placesList" [value]="pla.id">{{pla.namePlace}}</option>
+                        </select>
+                        <label class="input-group-text" for="placesOriInput">Origen</label>
+                    </div>
+
+                    <br>
+                    <div class="input-group mb-3 count-input">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Cantidad</span>
+                        <input type="number" class="form-control" aria-label="Sizing example input" [(ngModel)]="count" name="count" (input)="onInputChange()"
+                            aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div>
+                        <img src="../../../../assets/img/empty-image.png" class="img-thumbnail" alt="Imga Service"
+                            width="200" height="200" *ngIf="isImageSelectDes()">
+
+                        <img [src]="placesDes.idImage.url" class="img-thumbnail" alt="Imga Service" width="200"
+                            height="200" *ngIf="!isImageSelectDes()">
+                    </div>
+
+                    <br>
+
+                    <div class="input-group mb-3">
+                        <select class="form-select" id="placesDesInput" [(ngModel)]="placesDesId" name="namePlace" (input)="onInputChange()">
+                            <option *ngFor="let pla of placesList" [value]="pla.id" >{{pla.namePlace}}</option>
+                        </select>
+                        <label class="input-group-text" for="placesDesInput">Destino</label>
+                    </div>
+
+                    <br>
+                    <div class="input-group mb-3">
+                        <select class="form-select" id="inputGroupStatus" [(ngModel)]="status" name="status" (input)="onInputChange()">
+                            <option *ngFor="let sta of statusList" [value]="sta" >{{sta}}</option>
+                        </select>
+                        <label class="input-group-text" for="inputGroupStatus">Estado</label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <app-date-pick *ngIf="isEditValue()" (timeChange)="onTimeChange($event)" #date [isTime]="false" ></app-date-pick>
+        <app-date-pick *ngIf="!isEditValue()" (timeChange)="onTimeChange($event)" #date [isTime]="false"></app-date-pick>
+
+
+        <div class="container text-center">
+            <div class="row ">
+                <div class="col">
+                    <div class="input-group count-input  mb-3">
+                        <span class="input-group-text">Descripción</span>
+                        <textarea class="form-control" aria-label="With textarea" [(ngModel)]="description" name="description" (input)="onInputChange()"></textarea>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <button *ngIf="isEditValue()" class="btn btn-primary" type="button" [disabled]="btnDes" (click)="saveJourney()">Agregar Viaje</button>
+            <button *ngIf="!isEditValue()" class="btn btn-primary" type="button" [disabled]="btnDes" (click)="saveJourney()">Actualizar Viaje</button>
+        </div>
+        <br>
+
+    </main>
+</body>

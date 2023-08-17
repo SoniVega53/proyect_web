@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Lumanosimo&display=swap');
+.nav-link{
+    color: rgb(255, 255, 255);
+}
+
+.container-fluid{
+    margin: 0.5rem;
+}
+
+.text-nav-title{
+    font-family: 'Lumanosimo', cursive;
+    margin: 0;
+}
+
+.svg-icon{
+    color: aliceblue;
+    text-align: center;
+    align-items: center;
+}
+
+.dropstart .dropdown-menu[data-bs-popper] {
+    top: 90%;
+    right: 20%;
+    left: auto;
+    margin-top: 0;
+    margin-right: var(--bs-dropdown-spacer);
+}
+
+.svg-nav-icon{
+    width: 25px;
+    height: 25px;
+}
+
+.nav-item{
+    cursor: pointer;
+}

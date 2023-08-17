@@ -1,0 +1,12 @@
+main{
+    margin-top: 2rem;
+    width: 45%;
+}
+
+.count-input span{
+    margin: 0 !important;
+}
+
+.img-thumbnail{
+    height: 10rem;
+}

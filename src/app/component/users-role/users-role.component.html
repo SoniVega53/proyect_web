@@ -1,0 +1,75 @@
+<body class="ajustCenter">
+
+    <main class="container user-details">
+
+        <div id="carouselExample" class="carousel slide rounded-5">
+            <div class="carousel-inner">
+                <div class="carousel-item active ">
+                    <div class="img-secu-p rounded-5"></div>
+                    <div class="img-secu-h rounded-5">
+                        <div class="ajustCenter divText">
+                            <h2 class="text-center ">¡Descubre nuestros emocionantes viajes en Aventuras 360! Ven a
+                                explorar destinos únicos y experiencias inolvidables. ¡Te esperamos!</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item " *ngFor="let pub of publisities">
+                    <div class="img-secu-p rounded-5"></div>
+                    <div class="img-secu-h rounded-5 ">
+                        <div class="ajustCenter">
+                            <img [src]="pub.idImage.url" class="rounded-5" alt="...">
+                        </div>
+                        <div class="ajustCenter divTextImage">
+                            <p class="text-center ">{{pub.description}}</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <br>
+        <table class="table" *ngIf="table">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">EMAIL</th>
+                    <th scope="col">NAME</th>
+                    <th scope="col">LASTNAME</th>
+                    <th scope="col">PHONE</th>
+                    <th scope="col">PASSWORD</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let us of users">
+                    <th>{{us?.idUser}}</th>
+                    <td>{{us?.email}}</td>
+                    <td>{{us?.name}}</td>
+                    <td>{{us?.lastname}}</td>
+                    <td>{{us?.phone}}</td>
+                    <td>{{us?.password}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div *ngIf="!table">
+            <div  class="ajustCenter">
+                <img src="../../../assets/img/empty.png" alt="">
+            </div>
+            <h3 class="text-center">No se encontro ningún usuario</h3>
+        </div>
+
+
+    </main>
+
+</body>

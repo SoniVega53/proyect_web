@@ -1,0 +1,17 @@
+body{
+    height: 80vh;
+}
+
+.user-details{
+    width: 30%;
+}
+
+.svg-details-icon{
+    width: 8rem;
+    height: 8rem;
+}
+
+p{
+    display: inline !important;
+    size: 10rem;
+}

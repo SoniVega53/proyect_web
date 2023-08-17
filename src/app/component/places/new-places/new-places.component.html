@@ -1,0 +1,49 @@
+<body>
+    <main class="container container-board">
+        <br>
+        <h1 class="text-center">Crear Lugares de Destino y Origen Aventuras 360</h1>
+        <br>
+
+        <div class="container text-center container-create">
+            <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+            <div class="row row-cols-2">
+                <div class="col">
+                    <div class="mb-3">
+                        <div>
+                            <img src="../../../../assets/img/empty-image.png" class="img-thumbnail" alt="Imga Service"
+                                width="200" height="200" *ngIf="isImageSelect()">
+
+                            <img [src]="imageSelect" class="img-thumbnail" alt="Imga Service" width="200" height="200"
+                                *ngIf="!isImageSelect()">
+                        </div>
+                        <br>
+
+                        <div class="mb-3">
+                            <label for="nameInput" class="form-label">Ingrese Nombre del Lugar u Origen</label>
+                            <input class="form-control" type="text" aria-label="default input example" id="nameInput" [(ngModel)]="namePlace"
+                            name="namePlace" (input)="isEnableButton()">
+                        </div>
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="descInput" class="form-label">Ingrese una descripción del lugar</label>
+                        <textarea class="form-control" id="descInput" rows="3" [(ngModel)]="description"
+                        name="description" (input)="isEnableButton()"></textarea>
+                    </div>
+
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button class="btn btn-success" type="button" [disabled] = "isEnableButton()" (click)="savePlace()">Aceptar</button>
+                    </div>
+                </div>
+                <div class="col">
+                    <app-image-select (imageSelectOut)="onImageChange($event)" [type]="'pl'"></app-image-select>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+    </main>
+</body>

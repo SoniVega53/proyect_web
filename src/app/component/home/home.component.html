@@ -1,0 +1,41 @@
+<body >
+  <div class="img-secu-p "></div>
+  <div class="img-secu-h ">
+    <main class="container">
+      <div class="ajustCenter">
+        <h1>Descubriendo lo desconocido: Aventuras 360 en lugares remotos</h1>
+      </div>
+      <div class="ajustCenter">
+        <p class="p-title">es una experiencia única e inmersiva que te lleva a viajar por los lugares más asombrosos y
+          remotos del
+          planeta, todo desde la comodidad de tu hogar. Con la magia de la tecnología 360, te embarcarás en un
+          emocionante
+          recorrido a través de paisajes impresionantes y culturas fascinantes.</p>
+      </div>
+
+      <br>
+      <div class="container text-center">
+        <div class="row">
+          <div class="col">
+            <app-card-select [svg]="0" [title]="'Viajes'" (click)="onClikNav('/places')"
+              [description]="'Creación y Reservaciones de viajes para usuarios'">
+            </app-card-select>
+          </div>
+          <div class="col">
+            <app-card-select [svg]="1" [title]="'Anuncios'" (click)="onClikNav('/publicity')"
+              [description]="'Creación de Anuncios para usuarios'">
+            </app-card-select>
+          </div>
+          <div class="col">
+            <app-card-select [svg]="2" [title]="'Usuarios'" (click)="onClikNav('/users')"
+              [description]="'Visualización de usuarios existentes'">
+            </app-card-select>
+          </div>
+        </div>
+      </div>
+
+
+
+    </main>
+  </div>
+</body>

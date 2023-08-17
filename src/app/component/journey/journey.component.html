@@ -1,0 +1,40 @@
+<body>
+    <main class="container">
+        <table class="table table-secondary" *ngIf="isJourneyonUser()">
+            <thead>
+                <tr class="table-dark">
+                    <th scope="col">ID</th>
+                    <th scope="col">Origen</th>
+                    <th scope="col">Destino</th>
+                    <th scope="col">Fecha de Partida</th>
+                    <th scope="col">Fecha de Regreso</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col ">Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let jur of journeyList">
+                    <th scope="row">{{jur.journey.id}}</th>
+                    <td>{{jur.placeOri.namePlace}}</td>
+                    <td>{{jur.placeDes.namePlace}}</td>
+                    <td>{{ jur.journey.dateInitial | date:'dd/MM/yyyy' }}</td>
+                    <td>{{ jur.journey.dateEnd | date:'dd/MM/yyyy' }}</td>
+                    <td>{{jur.journey.count}}</td>
+                    <td>{{jur.journey.status}}</td>
+                    <div>
+                        <button type="button" class="btn btn-primary btn-sm" (click)="navEdit(jur.journey.id)">Editar</button> 
+                        <button type="button" class="btn btn-sm btn-danger" (click)="getDeleteJourneyId(jur.journey.id)">Eliminar</button>
+                    </div>
+                </tr>
+            </tbody>
+        </table>
+
+        <div *ngIf="!isJourneyonUser()">
+            <div  class="ajustCenter">
+                <img src="../../../assets/img/empty.png" alt="">
+            </div>
+            <h3 class="text-center">No se encontro ningúna Viaje</h3>
+        </div>
+    </main>
+</body>

@@ -1,0 +1,75 @@
+.card-pub {
+    margin: 0.5rem;
+
+}
+
+body{
+    padding: 1rem;
+}
+
+.div-img {
+    height: 10rem;
+}
+
+.div-img img {
+    max-width: 100%;
+    /* Ajustar el ancho máximo de la imagen al ancho del div */
+    max-height: 100%;
+    /* Ajustar la altura máxima de la imagen al alto del div */
+
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.btn-danger {
+    margin: 0.2rem;
+}
+
+.accordion {
+    width: 70%;
+}
+
+.img-select {
+    width: 70px;
+    height: 70px;
+    margin: 0.3rem;
+
+}
+
+.card-body p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    max-height: 6rem;
+}
+
+.contenedor-imagenes {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    margin: 0.2rem;
+}
+
+.contenedor-imagenes img,
+.contenedor-imagenes svg {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.contenedor-imagenes svg {
+    z-index: 1;
+    color: rgb(218, 6, 6);
+}
+
+.div-load{
+    height: 100%;
+}
+
+h1{
+    font-family: 'Playfair Display', serif;
+}
+

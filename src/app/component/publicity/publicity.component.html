@@ -1,0 +1,171 @@
+<body>
+    <main class="container container-board">
+        <br>
+        <h1 class="text-center">Anuncios Aventuras 360</h1>
+        <br>
+
+        <section class="ajustCenter" *ngIf="!publicityEdit">
+            <div class="accordion " id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            Crear Anuncio
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div class="container text-center">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <div *ngIf="imageSelect">
+                                                <img [src]="imageSelect" class="img-thumbnail" alt="Imga Service"
+                                                    width="150" height="150">
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="desInput" class="form-label">Descripción</label>
+                                                <textarea class="form-control" [(ngModel)]="description"
+                                                    name="description" (input)="onInputChange()" id="desInput"
+                                                    rows="3"></textarea>
+                                            </div>
+
+                                            <app-date-pick (timeChange)="onTimeChange($event)" #date></app-date-pick>
+
+                                            <button class="btn btn-primary" type="button"
+                                                [disabled]="botonDeshabilitado" (click)="savePublicity()">Agregar
+                                                Anuncio</button>
+                                        </div>
+                                    </div>
+                                    <div class="col ">
+                                        <app-image-select (imageSelectOut)="onImageChange($event)"
+                                            [type]="'an'"></app-image-select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <br>
+        <div class="container text-center ">
+            <div class="row ajustCenter">
+                <div class="col-md-auto card-pub " *ngFor="let pub of publisities">
+                    <div class="card border-success mb-3" style="max-width: 18rem; min-height: 22rem;">
+                        <div class="card-header bg-transparent border-success">
+                            <div class="div-img">
+                                <img [src]="pub.idImage.url" alt="Imga Service">
+                            </div>
+                        </div>
+                        <div class="card-body text-success">
+                            <p class="card-text">{{pub.description}}</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-success">
+                            <div class="container text-center">
+                                <div class="row">
+                                    <div class="col ">
+                                        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+                                            (click)="editPublicity(pub)" data-bs-target="#exampleModal"
+                                            style="width: 100%;">
+                                            Editar
+                                        </button>
+                                    </div>
+                                    <div class="col">
+                                        <button type="button" class="btn btn-outline-danger" style="width: 100%;"
+                                            (click)="getDeletePubl(pub.id)">Eliminar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade " id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered">
+                <div class="modal-content ">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                            (click)="restItemsEdit()"></button>
+                    </div>
+                    <div class="modal-body" *ngIf="publicityEdit">
+                        <div class="accordion-body">
+                            <div class="container text-center">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <div class="container text-center">
+
+                                                <div class="row">
+                                                    <div class="col-6 col-md-4">
+                                                        <div *ngIf="publicityEdit.idImage.url">
+                                                            <img [src]="publicityEdit.idImage.url" class="img-thumbnail"
+                                                                alt="Imga Service" width="150" height="150">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6 col-md-4">
+                                                        <div *ngIf="imageSelect" class="ajustCenter div-load">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                                height="16" fill="currentColor"
+                                                                class="bi bi-arrow-left-right" viewBox="0 0 16 16">
+                                                                <path fill-rule="evenodd"
+                                                                    d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z" />
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-6 col-md-4">
+                                                        <div *ngIf="imageSelect">
+                                                            <img [src]="imageSelect" class="img-thumbnail"
+                                                                alt="Imga Service" width="150" height="150">
+                                                        </div>
+
+                                                        <div *ngIf="!imageSelect">
+                                                            <img src="../../../assets/img/empty-image.png"
+                                                                class="img-thumbnail" alt="Imga Service" width="150"
+                                                                height="150">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="desInput" class="form-label">Descripción</label>
+                                                <textarea class="form-control" [(ngModel)]="description"
+                                                    name="description" (input)="onInputChangeEdit()" id="desInput"
+                                                    rows="3">
+                                                </textarea>
+                                                <br>
+                                                <app-date-pick (timeChange)="onTimeChangeEdit($event)"
+                                                    [publicityEdit]="selectedTime"></app-date-pick>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col ">
+                                        <app-image-select (imageSelectOut)="onImageChange($event)" [type]="'an'"></app-image-select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                            (click)="restItemsEdit()">Cancelar</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" [disabled]="desButtonEdit"
+                            (click)="editPublicityAction()">Actualizar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</body>

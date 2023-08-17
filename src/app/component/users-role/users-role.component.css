@@ -1,0 +1,63 @@
+.carousel{
+    background-color: #5f5f5f;
+    display: block;
+    margin-top: 1rem;
+    height: 20rem;
+}
+
+.carousel-item img {
+    max-width: 100%;
+    max-height: 100%;
+    height: 15rem;
+    margin: 0.5rem;
+    display: inline-block;
+}
+
+p{
+    margin: 0 1rem;
+    font-size: 1rem;
+    color: #fdfdfd;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    max-height: 1.5rem;
+    max-width: 70rem;
+}
+h2{
+    color: #fdfdfd;
+    font-size: 2rem;
+}
+
+.img-secu-p{
+    background-image: url('../../../assets/img/carrucel.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 20rem;
+    width: 100%;
+    padding: 0 !important;
+    margin: 0 !important;
+    opacity: 0.2;
+}
+
+.img-secu-h{
+    position: absolute; /* Permite posicionar el div hijo en relación al div padre */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.divText{
+    height: 20rem;
+    
+}
+
+.divText h2{
+    width: 80%;
+}
+.divTextImage p{
+    width: 70%;
+    text-transform: uppercase;
+}

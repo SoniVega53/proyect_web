@@ -1,0 +1,39 @@
+<body>
+    <div>
+        <div class="container text-center ">
+            <div class=" ajustCenter row row-cols-auto">
+                <div  class="col" *ngFor="let img of imageAll" >
+                    <div class="contenedor-imagenes" *ngIf="imageAll.length > 0">
+                        <img [src]="img.url" class="img-select img-thumbnail" alt="Image Service" width="50" height="50"
+                            (click)="selectImage(img)">
+                        <svg (click)="deleteImage(img)" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                            fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                            <path
+                                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                        </svg>
+                    </div>
+
+                </div>
+                <div *ngIf="imageAll.length < 1">
+                    <img src="../../../../assets/img/empty.png" class="img-select " alt="Image Service" width="50" height="50">
+                    <p>Agregue una imagen</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="mb-3">
+        <br>
+        <label for="formFile" class="form-label">Seleccione Una Imagen</label>
+        <input class="form-control" type="file" id="formFile" [(ngModel)]="selectedImage" name="selectedImage"
+            accept="image/jpeg, image/png" (change)="onFileSelected($event)">
+    </div>
+
+    <div class="ajustCenter">
+        <button class="btn btn-primary" type="button" (click)="saveImage()">Agregar
+            Imagen</button>
+    </div>
+</body>

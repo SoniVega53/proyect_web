@@ -1,0 +1,16 @@
+body{
+    margin-top: 2rem;
+}
+
+.image-select{
+    margin-bottom: 1rem;
+}
+
+.image-url{
+    height: 200px;
+    width: 300px;
+}
+
+main{
+    width: 50%;
+}
